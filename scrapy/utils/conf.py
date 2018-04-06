@@ -4,7 +4,10 @@ import numbers
 from operator import itemgetter
 
 import six
-from six.moves.configparser import SafeConfigParser
+if sys.version_info >= (3,2):
+    from six.moves.configparser import ConfigParser as SafeConfigParser
+else:
+    from six.moves.configparser import SafeConfigParser
 
 from scrapy.settings import BaseSettings
 from scrapy.utils.deprecate import update_classpath
